@@ -1,16 +1,16 @@
-package com.example.meconvideapp.ui.slideshow;
+package com.example.meconvideapp.ui.absent;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class SlideshowViewModel extends ViewModel {
+public class AbsentModel extends ViewModel {
 
     private MutableLiveData<String> mText;
 
-    public SlideshowViewModel() {
+    public AbsentModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is slideshow fragment");
+        mText.setValue("Fragmento dos ausentes");
     }
 
     public LiveData<String> getText() {

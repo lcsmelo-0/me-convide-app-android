@@ -1,16 +1,16 @@
-package com.example.meconvideapp.ui.gallery;
+package com.example.meconvideapp.ui.allGuests;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class GalleryViewModel extends ViewModel {
+public class AllGuestsModel extends ViewModel {
 
     private MutableLiveData<String> mText;
 
-    public GalleryViewModel() {
+    public AllGuestsModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is gallery fragment");
+        mText.setValue("Fragmento de todos os convidados");
     }
 
     public LiveData<String> getText() {

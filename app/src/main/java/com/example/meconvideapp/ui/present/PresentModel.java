@@ -1,16 +1,16 @@
-package com.example.meconvideapp.ui.home;
+package com.example.meconvideapp.ui.present;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class HomeViewModel extends ViewModel {
+public class PresentModel extends ViewModel {
 
     private MutableLiveData<String> mText;
 
-    public HomeViewModel() {
+    public PresentModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is home fragment");
+        mText.setValue("Fragmento dos presentes");
     }
 
     public LiveData<String> getText() {

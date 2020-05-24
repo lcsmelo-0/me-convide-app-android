@@ -1,4 +1,4 @@
-package com.example.meconvideapp.ui.slideshow;
+package com.example.meconvideapp.ui.allGuests;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -14,17 +14,17 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.example.meconvideapp.R;
 
-public class SlideshowFragment extends Fragment {
+public class AllGuestsFragment extends Fragment {
 
-    private SlideshowViewModel slideshowViewModel;
+    private AllGuestsModel allGuestsModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        slideshowViewModel =
-                ViewModelProviders.of(this).get(SlideshowViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_slideshow, container, false);
-        final TextView textView = root.findViewById(R.id.text_slideshow);
-        slideshowViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
+        allGuestsModel =
+                ViewModelProviders.of(this).get(AllGuestsModel.class);
+        View root = inflater.inflate(R.layout.fragment_all_guests, container, false);
+        final TextView textView = root.findViewById(R.id.text_home);
+        allGuestsModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);
