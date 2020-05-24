@@ -1,4 +1,4 @@
-package com.example.meconvideapp.ui.present;
+package com.example.meconvideapp.views.fragments.present;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

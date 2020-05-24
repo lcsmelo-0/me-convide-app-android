@@ -1,16 +1,16 @@
-package com.example.meconvideapp.ui.absent;
+package com.example.meconvideapp.views.fragments.present;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class AbsentModel extends ViewModel {
+public class PresentModel extends ViewModel {
 
     private MutableLiveData<String> mText;
 
-    public AbsentModel() {
+    public PresentModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("Fragmento dos ausentes");
+        mText.setValue("Fragmento dos presentes");
     }
 
     public LiveData<String> getText() {

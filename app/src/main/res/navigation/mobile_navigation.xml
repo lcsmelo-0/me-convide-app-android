@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/nav_all_guests"
-        android:name="com.example.meconvideapp.ui.allGuests.AllGuestsFragment"
+        android:name="com.example.meconvideapp.views.fragments.allGuests.AllGuestsFragment"
         android:label="@string/todos"
         tools:layout="@layout/fragment_all_guests">
 '
@@ -15,13 +15,13 @@
 
     <fragment
         android:id="@+id/nav_present"
-        android:name="com.example.meconvideapp.ui.present.PresentFragment"
+        android:name="com.example.meconvideapp.views.fragments.present.PresentFragment"
         android:label="@string/presentes"
         tools:layout="@layout/fragment_present" />
 
     <fragment
         android:id="@+id/nav_absent"
-        android:name="com.example.meconvideapp.ui.absent.AbsentFragment"
+        android:name="com.example.meconvideapp.views.fragments.absent.AbsentFragment"
         android:label="@string/ausentes"
         tools:layout="@layout/fragment_absent" />
 </navigation>

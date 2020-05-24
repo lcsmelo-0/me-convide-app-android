@@ -1,4 +1,4 @@
-package com.example.meconvideapp.ui.allGuests;
+package com.example.meconvideapp.views.fragments.allGuests;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;

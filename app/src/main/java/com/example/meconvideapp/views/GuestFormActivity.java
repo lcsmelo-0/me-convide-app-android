@@ -1,8 +1,10 @@
-package com.example.meconvideapp;
+package com.example.meconvideapp.views;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.example.meconvideapp.R;
 
 public class GuestFormActivity extends AppCompatActivity {
 
