@@ -7,17 +7,18 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import com.example.meconvideapp.constants.DataBaseConstants;
 
-public class GuestDataBaseHelper  extends SQLiteOpenHelper {
+public class GuestDataBaseHelper extends SQLiteOpenHelper {
 
     private static final int DATABASE_VERSION = 1;
-    private static final String DATABASE_NAME = "MeusConvidados.db";
+    private static final String DATABASE_NAME = "Convidados.db";
+
     private static final String CREATE_TABLE_GUEST = "create table " + DataBaseConstants.GUEST.TABLE_NAME + " ("
             + DataBaseConstants.GUEST.COLUMNS.ID + " integer primary key autoincrement, "
             + DataBaseConstants.GUEST.COLUMNS.NAME + " text, "
             + DataBaseConstants.GUEST.COLUMNS.PRESENCE + " integer);";
 
     public GuestDataBaseHelper(Context context) {
-        super(context, this.DATABASE_NAME, null, this.DATABASE_VERSION);
+        super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
     @Override
@@ -26,8 +27,7 @@ public class GuestDataBaseHelper  extends SQLiteOpenHelper {
     }
 
     @Override
-    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-
+    public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
     }
 
 }

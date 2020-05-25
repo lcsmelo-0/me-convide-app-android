@@ -9,12 +9,14 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 
 import com.example.meconvideapp.R;
+import com.example.meconvideapp.business.GuestBusiness;
 import com.example.meconvideapp.constants.GuestConstants;
 import com.example.meconvideapp.entities.GuestEntity;
 
 public class GuestFormActivity extends AppCompatActivity implements View.OnClickListener {
 
     private ViewHolder mViewHolder = new ViewHolder();
+    private GuestBusiness mGuestBusiness;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +28,7 @@ public class GuestFormActivity extends AppCompatActivity implements View.OnClick
         this.mViewHolder.mRadioPresent = this.findViewById(R.id.radio_present);
         this.mViewHolder.mRadioAbsent = this.findViewById(R.id.radio_absent);
         this.mViewHolder.mButtonSave = this.findViewById(R.id.button_save);
-
+        this.mGuestBusiness = new GuestBusiness(this);
         this.setListeners();
     }
 
@@ -52,6 +54,8 @@ public class GuestFormActivity extends AppCompatActivity implements View.OnClick
         } else{
             guestEntity.setConfirmed(GuestConstants.CONFIRMATION.ABSENT);
         }
+
+        this.mGuestBusiness.insert(guestEntity);
     }
 
     private static class ViewHolder{
