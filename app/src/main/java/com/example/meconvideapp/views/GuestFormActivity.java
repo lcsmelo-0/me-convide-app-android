@@ -61,6 +61,7 @@ public class GuestFormActivity extends AppCompatActivity implements View.OnClick
         }
 
         this.mGuestBusiness.insert(guestEntity);
+        finish();
     }
 
     private Boolean validateSave(){
