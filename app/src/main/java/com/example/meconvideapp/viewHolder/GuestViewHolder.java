@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.meconvideapp.R;
 import com.example.meconvideapp.entities.GuestEntity;
+import com.example.meconvideapp.listener.OnGuestListenerInteractionListener;
 
 public class GuestViewHolder extends RecyclerView.ViewHolder  {
 
@@ -18,7 +19,13 @@ public class GuestViewHolder extends RecyclerView.ViewHolder  {
         this.mTextName = (TextView) itemView.findViewById(R.id.text_name);
     }
 
-    public void bindData(GuestEntity guestEntity){
+    public void bindData(final GuestEntity guestEntity, final OnGuestListenerInteractionListener listener){
         this.mTextName.setText(guestEntity.getName());
+        this.mTextName.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                listener.onListClick(guestEntity.getId());
+            }
+        });
     }
 }

@@ -1,6 +1,7 @@
 package com.example.meconvideapp.views.fragments.allGuests;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,8 +19,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.meconvideapp.R;
 import com.example.meconvideapp.adapter.GuestListAdapter;
 import com.example.meconvideapp.business.GuestBusiness;
+import com.example.meconvideapp.constants.GuestConstants;
 import com.example.meconvideapp.entities.GuestEntity;
+import com.example.meconvideapp.listener.OnGuestListenerInteractionListener;
+import com.example.meconvideapp.views.GuestFormActivity;
 
+import java.sql.BatchUpdateException;
 import java.util.List;
 
 public class AllGuestsFragment extends Fragment {
@@ -40,10 +45,31 @@ public class AllGuestsFragment extends Fragment {
         this.mViewHolder.mRecyclerAllInvited = (RecyclerView) view.findViewById(R.id.recycler_all_guests);
 
         this.mGuestBusiness = new GuestBusiness(context);
+
+        OnGuestListenerInteractionListener listener = new OnGuestListenerInteractionListener() {
+
+            @Override
+            public void onListClick(int id) {
+                //Abrir activity de form
+                Bundle bundle = new Bundle();
+                bundle.putInt(GuestConstants.BundleConstants.GUEST_ID, id);
+
+                Intent intent = new Intent(getContext(), GuestFormActivity.class);
+
+                intent.putExtras(bundle);
+                startActivity(intent);
+            }
+
+            @Override
+            public void onDeleteClick(int id) {
+
+            }
+        };
+
         List<GuestEntity> guestEntityList =  this.mGuestBusiness.getInvited();
 
         //Definindo um adapter
-        GuestListAdapter guestListAdapter = new GuestListAdapter(guestEntityList);
+        GuestListAdapter guestListAdapter = new GuestListAdapter(guestEntityList, listener);
         this.mViewHolder.mRecyclerAllInvited.setAdapter(guestListAdapter);
 
         //Definindo layout
