@@ -9,9 +9,18 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.meconvideapp.R;
+import com.example.meconvideapp.entities.GuestEntity;
 import com.example.meconvideapp.viewHolder.GuestViewHolder;
 
+import java.util.List;
+
 public class GuestListAdapter  extends RecyclerView.Adapter<GuestViewHolder> {
+
+    private List<GuestEntity> mGuestEntityList;
+
+    public GuestListAdapter(List<GuestEntity> guestEntityList){
+        this.mGuestEntityList = guestEntityList;
+    }
 
     @NonNull
     @Override
@@ -26,11 +35,12 @@ public class GuestListAdapter  extends RecyclerView.Adapter<GuestViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull GuestViewHolder holder, int position) {
-
+        GuestEntity guestEntity = this.mGuestEntityList.get(position);
+        holder.bindData(guestEntity);
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return this.mGuestEntityList.size();
     }
 }
