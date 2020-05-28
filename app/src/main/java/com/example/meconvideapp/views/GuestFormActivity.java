@@ -44,6 +44,11 @@ public class GuestFormActivity extends AppCompatActivity implements View.OnClick
     }
 
     private void handleSave() {
+
+        if(!this.validateSave()){
+            return;
+        }
+
         GuestEntity guestEntity = new GuestEntity();
         guestEntity.setName(this.mViewHolder.mEditName.getText().toString());
 
@@ -56,6 +61,15 @@ public class GuestFormActivity extends AppCompatActivity implements View.OnClick
         }
 
         this.mGuestBusiness.insert(guestEntity);
+    }
+
+    private Boolean validateSave(){
+        if(this.mViewHolder.mEditName.getText().toString().equals("")){
+            this.mViewHolder.mEditName.setError(getString(R.string.nome_obrigatorio));
+            return false;
+        } else{
+            return true;
+        }
     }
 
     private static class ViewHolder{
