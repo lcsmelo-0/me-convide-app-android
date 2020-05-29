@@ -3,6 +3,7 @@ package com.example.meconvideapp.business;
 import android.content.Context;
 
 import com.example.meconvideapp.constants.DataBaseConstants;
+import com.example.meconvideapp.constants.GuestConstants;
 import com.example.meconvideapp.entities.GuestEntity;
 import com.example.meconvideapp.repository.GuestRepository;
 
@@ -21,11 +22,21 @@ public class GuestBusiness {
         return this.mGuestRepository.insert(guestEntity);
     }
 
-    public List<GuestEntity> getInvited(){
+    public List<GuestEntity> getInvited() {
         return this.mGuestRepository.getGuestsByQuery("select * from " + DataBaseConstants.GUEST.TABLE_NAME);
     }
 
-    public GuestEntity load(int id){
+    public List<GuestEntity> getAbsent() {
+        return this.mGuestRepository.getGuestsByQuery("select * from " + DataBaseConstants.GUEST.TABLE_NAME + " where "
+                + DataBaseConstants.GUEST.COLUMNS.PRESENCE + " = " + GuestConstants.CONFIRMATION.ABSENT);
+    }
+
+    public List<GuestEntity> getPresent() {
+        return this.mGuestRepository.getGuestsByQuery("select * from " + DataBaseConstants.GUEST.TABLE_NAME + " where "
+                + DataBaseConstants.GUEST.COLUMNS.PRESENCE + " = " + GuestConstants.CONFIRMATION.PRESENT);
+    }
+
+    public GuestEntity load(int id) {
         return this.mGuestRepository.load(id);
     }
 }
