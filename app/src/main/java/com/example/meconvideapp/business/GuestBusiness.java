@@ -22,6 +22,10 @@ public class GuestBusiness {
         return this.mGuestRepository.insert(guestEntity);
     }
 
+    public Boolean update(GuestEntity guestEntity){
+        return this.mGuestRepository.update(guestEntity);
+    }
+
     public List<GuestEntity> getInvited() {
         return this.mGuestRepository.getGuestsByQuery("select * from " + DataBaseConstants.GUEST.TABLE_NAME);
     }

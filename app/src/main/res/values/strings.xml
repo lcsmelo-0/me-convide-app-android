@@ -30,4 +30,6 @@
     <string name="nome_obrigatorio">Nome é obrigatório</string>
     <string name="convidado_salvo">Convidado salvo</string>
     <string name="erro_salvar">Erro ao salvar</string>
+    <string name="erro_atualizar">Erro ao atualizar</string>
+    <string name="convidado_atualizado">Convidado atualizado</string>
 </resources>

@@ -18,7 +18,7 @@ public class GuestFormActivity extends AppCompatActivity implements View.OnClick
 
     private ViewHolder mViewHolder = new ViewHolder();
     private GuestBusiness mGuestBusiness;
-    private int mGuestId;
+    private int mGuestId = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,19 +63,26 @@ public class GuestFormActivity extends AppCompatActivity implements View.OnClick
             guestEntity.setConfirmed(GuestConstants.CONFIRMATION.ABSENT);
         }
 
-        if (this.mGuestBusiness.insert(guestEntity)) {
-            Toast.makeText(this, getString(R.string.convidado_salvo), Toast.LENGTH_LONG).show();
-        } else {
-            Toast.makeText(this, getString(R.string.erro_salvar), Toast.LENGTH_LONG).show();
+        if(this.mGuestId == 0){
+            if (this.mGuestBusiness.insert(guestEntity)) {
+                Toast.makeText(this, getString(R.string.convidado_salvo), Toast.LENGTH_LONG).show();
+            } else {
+                Toast.makeText(this, getString(R.string.erro_salvar), Toast.LENGTH_LONG).show();
+            }
+        } else{
+            guestEntity.setId(this.mGuestId);
+            if (this.mGuestBusiness.update(guestEntity)) {
+                Toast.makeText(this, getString(R.string.convidado_atualizado), Toast.LENGTH_LONG).show();
+            } else {
+                Toast.makeText(this, getString(R.string.erro_atualizar), Toast.LENGTH_LONG).show();
+            }
         }
-        ;
 
         finish();
     }
 
     private void loadDataFromActivity() {
         Bundle bundle = getIntent().getExtras();
-
         if (bundle != null) {
             this.mGuestId = bundle.getInt(GuestConstants.BundleConstants.GUEST_ID);
             GuestEntity guestEntity = this.mGuestBusiness.load(this.mGuestId);
