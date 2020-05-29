@@ -26,6 +26,10 @@ public class GuestBusiness {
         return this.mGuestRepository.update(guestEntity);
     }
 
+    public Boolean remove(int id){
+        return this.mGuestRepository.remove(id);
+    }
+
     public List<GuestEntity> getInvited() {
         return this.mGuestRepository.getGuestsByQuery("select * from " + DataBaseConstants.GUEST.TABLE_NAME);
     }

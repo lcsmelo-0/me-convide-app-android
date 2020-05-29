@@ -59,6 +59,21 @@ public class GuestRepository {
         }
     }
 
+    public Boolean remove(int id){
+        try{
+            SQLiteDatabase sqLiteDatabase = this.mGuestDataBaseHelper.getWritableDatabase();
+
+            String selection = DataBaseConstants.GUEST.COLUMNS.ID +" = ?";
+            String[] selectionArgs = {String.valueOf(id)};
+
+            sqLiteDatabase.delete(DataBaseConstants.GUEST.TABLE_NAME, selection, selectionArgs);
+
+            return true;
+        } catch( Exception e){
+            return false;
+        }
+    }
+
     public List<GuestEntity> getGuestsByQuery(String query) {
         List<GuestEntity> list = new ArrayList<>();
 

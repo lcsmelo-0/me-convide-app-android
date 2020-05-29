@@ -62,7 +62,7 @@ public class AllGuestsFragment extends Fragment {
 
             @Override
             public void onDeleteClick(int id) {
-
+                mGuestBusiness.remove(id);
             }
         };
 

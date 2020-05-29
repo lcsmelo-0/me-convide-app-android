@@ -32,4 +32,7 @@
     <string name="erro_salvar">Erro ao salvar</string>
     <string name="erro_atualizar">Erro ao atualizar</string>
     <string name="convidado_atualizado">Convidado atualizado</string>
+    <string name="sim">Sim</string>
+    <string name="nao">Não</string>
+    <string name="convidado_deletado">Convidado deletado</string>
 </resources>
