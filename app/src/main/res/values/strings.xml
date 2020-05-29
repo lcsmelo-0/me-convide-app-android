@@ -7,7 +7,7 @@
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Configurações</string>
 
-    <string name="todos">Todos</string>
+    <string name="todos">Todos | Home</string>
     <string name="ausentes">Ausentes</string>
     <string name="presentes">Presentes</string>
     <string name="todos_convidados">Todos convidados</string>

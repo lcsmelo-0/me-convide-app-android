@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/nav_all_guests"
         android:name="com.example.meconvideapp.views.fragments.allGuests.AllGuestsFragment"
-        android:label="@string/todos"
+        android:label="@string/app_name"
         tools:layout="@layout/fragment_all_guests">
 '
     </fragment>
