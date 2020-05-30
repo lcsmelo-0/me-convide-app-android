@@ -4,6 +4,7 @@ import android.content.Context;
 
 import com.example.meconvideapp.constants.DataBaseConstants;
 import com.example.meconvideapp.constants.GuestConstants;
+import com.example.meconvideapp.entities.GuestCount;
 import com.example.meconvideapp.entities.GuestEntity;
 import com.example.meconvideapp.repository.GuestRepository;
 
@@ -22,11 +23,11 @@ public class GuestBusiness {
         return this.mGuestRepository.insert(guestEntity);
     }
 
-    public Boolean update(GuestEntity guestEntity){
+    public Boolean update(GuestEntity guestEntity) {
         return this.mGuestRepository.update(guestEntity);
     }
 
-    public Boolean remove(int id){
+    public Boolean remove(int id) {
         return this.mGuestRepository.remove(id);
     }
 
@@ -46,5 +47,9 @@ public class GuestBusiness {
 
     public GuestEntity load(int id) {
         return this.mGuestRepository.load(id);
+    }
+
+    public GuestCount loadDashboard() {
+        return this.mGuestRepository.loadDashboard();
     }
 }
