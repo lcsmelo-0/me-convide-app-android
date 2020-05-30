@@ -25,7 +25,7 @@ public class AbsentFragment extends Fragment {
 
     private ViewHolder mViewHolder = new ViewHolder();
     private GuestBusiness mGuestBusiness;
-
+    private OnGuestListenerInteractionListener mOnGuestListenerInteractionListener;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,7 +40,7 @@ public class AbsentFragment extends Fragment {
 
         this.mGuestBusiness = new GuestBusiness(context);
 
-        OnGuestListenerInteractionListener listener = new OnGuestListenerInteractionListener() {
+        this.mOnGuestListenerInteractionListener = new OnGuestListenerInteractionListener() {
 
             @Override
             public void onListClick(int id) {
@@ -60,16 +60,27 @@ public class AbsentFragment extends Fragment {
             }
         };
 
-        List<GuestEntity> guestEntityList = this.mGuestBusiness.getAbsent();
-
-        //Definindo um adapter
-        GuestListAdapter guestListAdapter = new GuestListAdapter(guestEntityList, listener);
-        this.mViewHolder.mRecyclerAllAbsent.setAdapter(guestListAdapter);
 
         //Definindo layout
         this.mViewHolder.mRecyclerAllAbsent.setLayoutManager(new LinearLayoutManager(context));
         return view;
 
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        this.loadGuests();
+    }
+
+    private void loadGuests(){
+        List<GuestEntity> guestEntityList = this.mGuestBusiness.getAbsent();
+
+        //Definindo um adapter
+        GuestListAdapter guestListAdapter = new GuestListAdapter(guestEntityList, this.mOnGuestListenerInteractionListener);
+        this.mViewHolder.mRecyclerAllAbsent.setAdapter(guestListAdapter);
+        guestListAdapter.notifyDataSetChanged();
     }
 
     private static class ViewHolder {
