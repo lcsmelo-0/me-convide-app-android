@@ -43,7 +43,7 @@ public class GuestViewHolder extends RecyclerView.ViewHolder {
                 new AlertDialog.Builder(context)
                         .setTitle(R.string.remocao_convidado)
                         .setMessage(R.string.deseja_remover)
-                        .setIcon(R.drawable.ic_menu_camera)
+                        .setIcon(R.drawable.sad_black)
                         .setPositiveButton(R.string.sim, new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
@@ -62,7 +62,7 @@ public class GuestViewHolder extends RecyclerView.ViewHolder {
                 new AlertDialog.Builder(context)
                         .setTitle(R.string.remocao_convidado)
                         .setMessage(R.string.deseja_remover)
-                        .setIcon(R.drawable.ic_menu_camera)
+                        .setIcon(R.drawable.sad_black)
                         .setPositiveButton(R.string.sim, new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
